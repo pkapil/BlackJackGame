@@ -12,6 +12,22 @@ import com.decker.model.Game;
 public class Exec {
 	public static void main(String args[]) throws IOException {
 
+		while (true) {
+			String input;
+			do {
+				System.out.println("Do you want to play/continue the game: Y/N ");
+				input = new BufferedReader(new InputStreamReader(System.in)).readLine();
+				if (input.equalsIgnoreCase("Y")) {
+					startGame();
+				} else if (input.equalsIgnoreCase("N")) {
+					System.exit(0);
+				}
+
+			} while (!input.equalsIgnoreCase("Y") && !input.equalsIgnoreCase("N"));
+		}
+	}
+
+	public static void startGame() throws IOException {
 		Game game = new Game();
 		Deck deck = game.getDeck();
 		BlackJackHand dealer = new BlackJackHand();
@@ -65,7 +81,6 @@ public class Exec {
 				}
 			}
 		}
-
 	}
 
 	private static void getPlayerStats(BlackJackHand dealer, BlackJackHand player) {
