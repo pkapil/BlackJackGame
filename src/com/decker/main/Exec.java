@@ -15,7 +15,9 @@ public class Exec {
 		while (true) {
 			String input;
 			do {
-				System.out.println("Do you want to play/continue the game: Y/N ");
+				System.out.println("GAME STARTED  ");
+				System.out.println("==============");
+				System.out.println("Do you want to play/continue the game: Y/N  ");
 				input = new BufferedReader(new InputStreamReader(System.in)).readLine();
 				if (input.equalsIgnoreCase("Y")) {
 					startGame();
@@ -40,24 +42,27 @@ public class Exec {
 
 		while (true) {
 			if (dealer.isBlackJack()) {
-				System.out.println("Dealer Won!!");
+				System.out.println("Dealer Won!!  ");
+				System.out.println("---------------");
 				getPlayerStats(dealer, player);
 				break;
 			}
 			if (player.isBlackJack()) {
-				System.out.println("Player Won!!");
+				System.out.println("Player Won!!  ");
+				System.out.println("---------------");
 				getPlayerStats(dealer, player);
 				break;
 
 			}
 			if (dealer.isBurst()) {
-				System.out.println("Dealer Busted ended break");
+				System.out.println("Dealer Busted");
+				System.out.println("---------------");
 				getPlayerStats(dealer, player);
 				break;
 			}
 
 			getPlayerStats(dealer, player);
-			System.out.println("Would you like to play?  H or S ?");
+			System.out.println("Would you like to play?  H or S ?  ");
 			String input = "";
 
 			do {
@@ -70,6 +75,7 @@ public class Exec {
 				player.addCard(deck.dealCard());
 				if (player.isBurst()) {
 					System.out.println("Player Busted !");
+					System.out.println("---------------");
 					break;
 				}
 			}
@@ -77,6 +83,7 @@ public class Exec {
 				dealer.addCard(deck.dealCard());
 				if (player.isBurst()) {
 					System.out.println("Dealer busted !");
+					System.out.println("---------------");
 					break;
 				}
 			}
@@ -84,13 +91,13 @@ public class Exec {
 	}
 
 	private static void getPlayerStats(BlackJackHand dealer, BlackJackHand player) {
-		System.out.println("*******Cards info ******");
+		System.out.println("Cards info   ");
+		System.out.println("---------------");
 		for (Card c : dealer.getCards())
-			System.out.println("Dealer card :" + c);
+			System.out.println("Dealer card :" + c+"  ");
 		for (Card c : player.getCards())
-			System.out.println("Player card :" + c);
-		System.out.println("Dealer Count:" + dealer.getCardCount());
-		System.out.println("Player Count:" + player.getCardCount());
-		System.out.println("========================");
+			System.out.println("Player card :" + c+"  ");
+		System.out.println("Dealer Count:" + dealer.getCardCount()+"  ");
+		System.out.println("Player Count:" + player.getCardCount()+"  ");
 	}
 }
